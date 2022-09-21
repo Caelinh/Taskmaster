@@ -32,3 +32,6 @@ Features added
  - Added recycle view in the main task activity page with clickable buttons that take you to a detail view for that task.
  - added tests for this function.
  - added styling to the main activity.
+
+![Wednesday Screenshot](https://user-images.githubusercontent.com/106052558/191616972-dace4985-71d1-4171-98b6-02312431203b.png)
+
