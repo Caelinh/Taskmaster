@@ -22,3 +22,6 @@ Features added
  - User is now able to sign in using user settings button on main page. THe username is then displayed on the home page.
  - Three hardcoded task buttons have been added to home. When pressed it takes the user to a task details page fro the specific task with placeholder details text.
  - Font theme has been chosen and color themes loaded into xml to be assigned moving on.
+ - Completed espresso tests for these new features.  
+ 
+ ![Tuesday Screenshot](https://user-images.githubusercontent.com/106052558/191395172-6a0e4b8c-24a2-47b5-a9fa-9864c19523b5.png)
