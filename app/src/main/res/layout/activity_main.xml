@@ -5,6 +5,7 @@
     android:id="@+id/MainActivityimg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/NorthernLights5"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,7 +16,9 @@
         android:layout_marginTop="52dp"
         android:layout_marginEnd="68dp"
         android:fontFamily="@font/roboto_mono"
+        android:includeFontPadding="false"
         android:text="@string/my_tasks"
+        android:textColor="@color/NorthernLights2"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/MainActivityUsrSettingsBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +32,7 @@
         android:layout_marginBottom="128dp"
         android:fontFamily="@font/roboto_mono"
         android:text="@string/add_task"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -41,6 +45,7 @@
         android:layout_marginBottom="128dp"
         android:fontFamily="@font/roboto_mono"
         android:text="@string/all_tasks"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -55,46 +60,19 @@
         android:fontFamily="@font/roboto_mono"
         android:text="@string/user_settings"
         android:visibility="visible"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/MainActivityTask2Btn"
-        android:layout_width="269dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/roboto_mono"
-        android:text="@string/take_out_the_trash"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivityTask3Btn"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/MainActivityTaskRecyclerVIew"
+        android:layout_width="365dp"
+        android:layout_height="328dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/NorthernLights5"
+        app:layout_constraintBottom_toTopOf="@+id/MainActivityAddTskBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityTask1Btn" />
-
-    <Button
-        android:id="@+id/MainActivityTask1Btn"
-        android:layout_width="269dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/roboto_mono"
-        android:text="@string/make_my_bed"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivityTask2Btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/MainActivityTask3Btn"
-        android:layout_width="269dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="224dp"
-        android:fontFamily="@font/roboto_mono"
-        android:text="@string/mow_the_lawn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityTask2Btn" />
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityUsrSettingsBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

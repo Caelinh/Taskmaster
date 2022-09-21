@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_add_task.xml" value="0.33" />
         <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_all_tasks.xml" value="0.38958333333333334" />
-        <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_main.xml" value="0.33611691022964507" />
         <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_task_detail.xml" value="0.5" />
+        <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_task_recycler.xml" value="0.33" />
         <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_user_profile.xml" value="0.33" />
         <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/activity_user_settings.xml" value="0.5" />
+        <entry key="..\:/Users/Caelin/Documents/Codefellows/401/Taskmaster/app/src/main/res/layout/fragment_task.xml" value="0.5" />
       </map>
     </option>
   </component>
