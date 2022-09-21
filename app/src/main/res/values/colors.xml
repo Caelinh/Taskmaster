@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="NorthernLights1">#164773</color>
+    <color name="NorthernLights2">#0B2B40</color>
+    <color name="NorthernLights3">#1E5959</color>
+    <color name="NorthernLights4" >#3B8C6E</color>
+    <color name="NorthernLights5">#89D99D</color>
+
+
 </resources>
