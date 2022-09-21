@@ -25,3 +25,10 @@ Features added
  - Completed espresso tests for these new features.  
  
  ![Tuesday Screenshot](https://user-images.githubusercontent.com/106052558/191395172-6a0e4b8c-24a2-47b5-a9fa-9864c19523b5.png)
+
+### Wednesday
+
+Features added
+ - Added recycle view in the main task activity page with clickable buttons that take you to a detail view for that task.
+ - added tests for this function.
+ - added styling to the main activity.
