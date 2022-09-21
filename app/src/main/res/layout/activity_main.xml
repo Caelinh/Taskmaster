@@ -13,32 +13,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="236dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="68dp"
+        android:fontFamily="@font/roboto_mono"
         android:text="@string/my_tasks"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/MainActivityUsrSettingsBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="311dp"
-        android:layout_height="318dp"
-        android:layout_marginTop="120dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivityTextView"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <Button
         android:id="@+id/MainActivityAddTskBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginBottom="160dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="128dp"
+        android:fontFamily="@font/roboto_mono"
         android:text="@string/add_task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -49,11 +38,63 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginEnd="43dp"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="128dp"
+        android:fontFamily="@font/roboto_mono"
         android:text="@string/all_tasks"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/MainActivityAddTskBtn" />
+
+    <Button
+        android:id="@+id/MainActivityUsrSettingsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="@string/user_settings"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/MainActivityTask2Btn"
+        android:layout_width="269dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="@string/take_out_the_trash"
+        app:layout_constraintBottom_toTopOf="@+id/MainActivityTask3Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityTask1Btn" />
+
+    <Button
+        android:id="@+id/MainActivityTask1Btn"
+        android:layout_width="269dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="@string/make_my_bed"
+        app:layout_constraintBottom_toTopOf="@+id/MainActivityTask2Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/MainActivityTask3Btn"
+        android:layout_width="269dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="224dp"
+        android:fontFamily="@font/roboto_mono"
+        android:text="@string/mow_the_lawn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityTask2Btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

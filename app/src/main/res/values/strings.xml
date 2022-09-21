@@ -10,4 +10,14 @@
     <string name="add_task_Btn">ADD TASK</string>
     <string name="back">Back</string>
     <string name="all_tasks_Title">All Tasks</string>
+    <string name="settings">Settings</string>
+    <string name="create_a_user_name">Create a User Name</string>
+    <string name="save">Save</string>
+    <string name="enter_username_here">Enter UserName here</string>
+    <string name="user_settings">User Settings</string>
+    <string name="take_out_the_trash">Take out the trash</string>
+    <string name="make_my_bed">Make my bed</string>
+    <string name="mow_the_lawn">Mow The Lawn</string>
+    <string name="task">Task</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_aenean_viverra_finibus_laoreet_suspendisse_nec_viverra_metus_quis_tristique_mauris_nunc_quis_lacinia_dolor_cras_ac_molestie_massa_eu_ultricies_tortor_nam_ac_tincidunt_felis_vitae_aliquet_orci_morbi_ultricies_eu_tellus_quis_pharetra_sed_semper_libero_sed_blandit_condimentum_ligula_magna_accumsan_mi_in_imperdiet_mauris_lacus_ac_tortor">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra finibus laoreet. Suspendisse nec viverra metus, quis tristique mauris. Nunc quis lacinia dolor. Cras ac molestie massa, eu ultricies tortor. Nam ac tincidunt felis, vitae aliquet orci. Morbi ultricies eu tellus quis pharetra. Sed semper, libero sed blandit condimentum, ligula magna accumsan mi, in imperdiet mauris lacus ac tortor.</string>
 </resources>
