@@ -22,10 +22,22 @@
         android:layout_width="279dp"
         android:layout_height="274dp"
         android:layout_marginTop="67dp"
-        android:layout_marginBottom="183dp"
+        android:layout_marginBottom="17dp"
         android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_aenean_viverra_finibus_laoreet_suspendisse_nec_viverra_metus_quis_tristique_mauris_nunc_quis_lacinia_dolor_cras_ac_molestie_massa_eu_ultricies_tortor_nam_ac_tincidunt_felis_vitae_aliquet_orci_morbi_ultricies_eu_tellus_quis_pharetra_sed_semper_libero_sed_blandit_condimentum_ligula_magna_accumsan_mi_in_imperdiet_mauris_lacus_ac_tortor"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/TaskDetailTextViewTaskStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TaskDetailActivityTitleTextView" />
+
+    <TextView
+        android:id="@+id/TaskDetailTextViewTaskStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="147dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TaskDetailActivityTaskDecriptionTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

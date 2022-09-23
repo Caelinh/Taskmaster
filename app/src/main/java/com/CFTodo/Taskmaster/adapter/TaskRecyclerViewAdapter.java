@@ -47,6 +47,8 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
         // 11 bind the data to our fragment
         TextView taskTitleFragment = holder.itemView.findViewById(R.id.FragTextTaskTitle);
         String taskTitle = tasks.get(position).getTitle();
+        String taskDescription = tasks.get(position).getDescription();
+        String TaskStatus = tasks.get(position).getState().toString();
         taskTitleFragment.setText(taskTitle);
 
         // Make an on click handler so we can interact with recyclerview items
@@ -56,6 +58,9 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
             Intent goToTaskDetails = new Intent(callingActivity, TaskDetailActivity.class);
             //TODO: pass data to task details here
             goToTaskDetails.putExtra(MainActivity.TASK_TITLE_TAG,taskTitle);
+            goToTaskDetails.putExtra(MainActivity.TASK_DESCRIPTION_TAG,taskDescription);
+            goToTaskDetails.putExtra(MainActivity.TASK_STATUS_TAG,TaskStatus);
+
             callingActivity.startActivity(goToTaskDetails);
         });
     }

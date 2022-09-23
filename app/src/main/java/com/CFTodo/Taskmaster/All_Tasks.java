@@ -37,7 +37,7 @@ public class All_Tasks extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //Recalls requests and methods without resetting
-        String Task = preferences.getString(AddTaskActivity.Task,"no Task");
+        String Task = preferences.getString(AddTaskActivity.Tasks,"no Task");
         String TaskDescription = preferences.getString(AddTaskActivity.TaskDescription,"no Task description");
     }
 }
