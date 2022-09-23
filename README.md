@@ -41,4 +41,5 @@ Features Added
  - Database created for some data continuity. Created tasks will now save when the app has been edited.
  - added a spinner list to select the status of the task you are adding.
  - Description and status are now displaying along with the task title on the task detail page.
+![Thursday  Screenshot](https://user-images.githubusercontent.com/106052558/191899324-a76666fb-9b6b-46f1-8745-1772d7634788.png)
 
