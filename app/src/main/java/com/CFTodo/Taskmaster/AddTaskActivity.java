@@ -1,12 +1,13 @@
 package com.CFTodo.Taskmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
+
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,8 +15,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.CFTodo.Taskmaster.database.TaskMasterDatabase;
-import com.CFTodo.Taskmaster.models.Task;
+
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.temporal.Temporal;
+import com.amplifyframework.datastore.generated.model.*;
 
 import java.util.Date;
 
@@ -25,8 +29,8 @@ public class AddTaskActivity extends AppCompatActivity {
     // preferences tags all activities can reference this tag
     public static final String Tasks = "Task";
     public static final String TaskDescription = "TaskDescription";
-    public static final String DATABASE_NAME = "TaskMaster_db";
-    TaskMasterDatabase taskMasterDatabase;
+    public static final String Tag = "AddTaskActivity";
+
 
 
     @Override
@@ -43,13 +47,7 @@ public class AddTaskActivity extends AppCompatActivity {
         }
         setUpSubmitButton(sharedPreferences);
         //initialize DB
-        taskMasterDatabase = Room.databaseBuilder(
-                        getApplicationContext(),
-                        TaskMasterDatabase.class,
-                        DATABASE_NAME)
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+
         setUpStateSpinner();
 
     }
@@ -60,7 +58,7 @@ public class AddTaskActivity extends AppCompatActivity {
         typeStateSpinner.setAdapter(new ArrayAdapter<>(
                 this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-                com.CFTodo.Taskmaster.models.Task.TaskStateEnum.values()
+                TaskStateEnum.values()
         ));
     }
     private void setUpSubmitButton(SharedPreferences sharedPreferences) {
@@ -85,14 +83,22 @@ public class AddTaskActivity extends AppCompatActivity {
             Toast.makeText(AddTaskActivity.this, "Task saved", Toast.LENGTH_SHORT).show();
 
             //TODO Create a new date object
-            java.util.Date newDate = new Date();
-
+            String currentDateString = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
             //TODO from string to enumStart here!!!! gotta get this fixed
-            Task.TaskStateEnum TaskStateEnum = Task.TaskStateEnum.fromString(taskStateSpinner.getSelectedItem().toString());
+//            Task.TaskStateEnum TaskStateEnum = Task.TaskStateEnum.fromString(taskStateSpinner.getSelectedItem().toString());
             //TODO create a new task obj.
-            Task newTask = new Task(taskInput,taskDescription,TaskStateEnum,newDate);
+            Task newTask = Task.builder()
+                    .title(taskInput)
+                    .description(taskDescription)
+                    .state((TaskStateEnum) taskStateSpinner.getSelectedItem())
+                    .dateCreated(new Temporal.DateTime(currentDateString))
+                    .build();
             //TODO insert into DB
-            taskMasterDatabase.taskDao().insertATask(newTask);
+            Amplify.API.mutate(
+                    ModelMutation.create(newTask),
+                    successResponse -> Log.i(Tag, "AddTaskActivity made a task successfully"),
+                    failureResponse -> Log.i(Tag, "AddTaskActivity failed with this response: " + failureResponse)
+            );
             //TODO redirect to main
             Intent goToMainActivity = new Intent(AddTaskActivity.this,MainActivity.class);
             startActivity(goToMainActivity);

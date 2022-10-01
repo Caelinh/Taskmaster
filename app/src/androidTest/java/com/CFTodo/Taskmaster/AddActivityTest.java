@@ -5,7 +5,6 @@ import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.longClick;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
@@ -37,15 +36,53 @@ import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTestDatabaseEntries {
+public class AddActivityTest {
 
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
-    public void mainActivityTestDatabaseEntries() {
+    public void addActivityTest() {
         ViewInteraction materialButton = onView(
+                allOf(withId(R.id.MainActivityUsrSettingsBtn), withText("User Settings"),
+                        childAtPosition(
+                                allOf(withId(R.id.MainActivityimg),
+                                        childAtPosition(
+                                                withId(android.R.id.content),
+                                                0)),
+                                3),
+                        isDisplayed()));
+        materialButton.perform(click());
+
+        ViewInteraction appCompatEditText = onView(
+                allOf(withId(R.id.UserSettingsEditUsername),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                1),
+                        isDisplayed()));
+        appCompatEditText.perform(replaceText("Username"), closeSoftKeyboard());
+
+        ViewInteraction materialButton2 = onView(
+                allOf(withId(R.id.UserSettingsSaveBtn), withText("Save"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                3),
+                        isDisplayed()));
+        materialButton2.perform(click());
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.mainActivityTextView), withText("Username's Tasks"),
+                        withParent(allOf(withId(R.id.MainActivityimg),
+                                withParent(withId(android.R.id.content)))),
+                        isDisplayed()));
+        textView.check(matches(withText("Username's Tasks")));
+
+        ViewInteraction materialButton3 = onView(
                 allOf(withId(R.id.MainActivityAddTskBtn), withText("ADD TASK"),
                         childAtPosition(
                                 allOf(withId(R.id.MainActivityimg),
@@ -54,21 +91,10 @@ public class MainActivityTestDatabaseEntries {
                                                 0)),
                                 1),
                         isDisplayed()));
-        materialButton.perform(click());
-
-        ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.AddTextActivityTextViewInputTask), withText("My Task"),
-                        childAtPosition(
-                                allOf(withId(R.id.AddTaskActivityAddTaskBtn),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                2),
-                        isDisplayed()));
-        appCompatEditText.perform(longClick());
+        materialButton3.perform(click());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.AddTextActivityTextViewInputTask), withText("My Task"),
+                allOf(withId(R.id.AddTextActivityTextViewInputTask),
                         childAtPosition(
                                 allOf(withId(R.id.AddTaskActivityAddTaskBtn),
                                         childAtPosition(
@@ -76,21 +102,10 @@ public class MainActivityTestDatabaseEntries {
                                                 0)),
                                 2),
                         isDisplayed()));
-        appCompatEditText2.perform(replaceText("Clean"));
+        appCompatEditText2.perform(replaceText("DO the dishes"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.AddTextActivityTextViewInputTask), withText("Clean"),
-                        childAtPosition(
-                                allOf(withId(R.id.AddTaskActivityAddTaskBtn),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                2),
-                        isDisplayed()));
-        appCompatEditText3.perform(closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText4 = onView(
-                allOf(withId(R.id.AddTextActivityTextViewInputEntry), withText("Do Something"),
+                allOf(withId(R.id.AddTextActivityTextViewInputEntry),
                         childAtPosition(
                                 allOf(withId(R.id.AddTaskActivityAddTaskBtn),
                                         childAtPosition(
@@ -98,18 +113,7 @@ public class MainActivityTestDatabaseEntries {
                                                 0)),
                                 0),
                         isDisplayed()));
-        appCompatEditText4.perform(replaceText("Clean the house."));
-
-        ViewInteraction appCompatEditText5 = onView(
-                allOf(withId(R.id.AddTextActivityTextViewInputEntry), withText("Clean the house."),
-                        childAtPosition(
-                                allOf(withId(R.id.AddTaskActivityAddTaskBtn),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                0),
-                        isDisplayed()));
-        appCompatEditText5.perform(closeSoftKeyboard());
+        appCompatEditText3.perform(replaceText("get them done"), closeSoftKeyboard());
 
         ViewInteraction appCompatSpinner = onView(
                 allOf(withId(R.id.AddTaskViewSpinner),
@@ -129,7 +133,14 @@ public class MainActivityTestDatabaseEntries {
                 .atPosition(1);
         materialTextView.perform(click());
 
-        ViewInteraction materialButton2 = onView(
+        ViewInteraction textView2 = onView(
+                allOf(withId(android.R.id.text1), withText("In_Progress"),
+                        withParent(allOf(withId(R.id.AddTaskViewSpinner),
+                                withParent(withId(R.id.AddTaskActivityAddTaskBtn)))),
+                        isDisplayed()));
+        textView2.check(matches(withText("In_Progress")));
+
+        ViewInteraction materialButton4 = onView(
                 allOf(withId(R.id.AddTextActivityTextViewAddTaskBTN), withText("ADD TASK"),
                         childAtPosition(
                                 allOf(withId(R.id.AddTaskActivityAddTaskBtn),
@@ -138,14 +149,14 @@ public class MainActivityTestDatabaseEntries {
                                                 0)),
                                 3),
                         isDisplayed()));
-        materialButton2.perform(click());
+        materialButton4.perform(click());
 
-        ViewInteraction textView = onView(
-                allOf(withId(R.id.FragTextTaskTitle), withText("Clean"),
+        ViewInteraction textView3 = onView(
+                allOf(withId(R.id.FragTextTaskTitle), withText("DO the dishes"),
                         withParent(allOf(withId(R.id.frameLayout),
                                 withParent(withId(R.id.MainActivityTaskRecyclerVIew)))),
                         isDisplayed()));
-        textView.check(matches(withText("Clean")));
+        textView3.check(matches(withText("DO the dishes")));
 
         ViewInteraction recyclerView = onView(
                 allOf(withId(R.id.MainActivityTaskRecyclerVIew),
@@ -154,29 +165,17 @@ public class MainActivityTestDatabaseEntries {
                                 4)));
         recyclerView.perform(actionOnItemAtPosition(0, click()));
 
-        ViewInteraction textView2 = onView(
-                allOf(withId(R.id.TaskDetailActivityTitleTextView), withText("Clean"),
-                        withParent(withParent(withId(android.R.id.content))),
-                        isDisplayed()));
-        textView2.check(matches(withText("Clean")));
-
-        ViewInteraction textView3 = onView(
-                allOf(withId(R.id.TaskDetailActivityTaskDecriptionTextView), withText("Clean the house."),
-                        withParent(withParent(withId(android.R.id.content))),
-                        isDisplayed()));
-        textView3.check(matches(withText("Clean the house.")));
-
         ViewInteraction textView4 = onView(
-                allOf(withId(R.id.TaskDetailActivityTaskDecriptionTextView), withText("Clean the house."),
+                allOf(withId(R.id.TaskDetailActivityTaskDecriptionTextView), withText("get them done"),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
-        textView4.check(matches(withText("Clean the house.")));
+        textView4.check(matches(withText("get them done")));
 
         ViewInteraction textView5 = onView(
-                allOf(withId(R.id.TaskDetailTextViewTaskStatus), withText("In Progress"),
+                allOf(withId(R.id.TaskDetailTextViewTaskStatus), withText("In_Progress"),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
-        textView5.check(matches(withText("In Progress")));
+        textView5.check(matches(withText("In_Progress")));
     }
 
     private static Matcher<View> childAtPosition(

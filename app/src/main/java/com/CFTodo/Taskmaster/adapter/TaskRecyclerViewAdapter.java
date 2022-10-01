@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.CFTodo.Taskmaster.MainActivity;
 import com.CFTodo.Taskmaster.R;
 import com.CFTodo.Taskmaster.TaskDetailActivity;
-import com.CFTodo.Taskmaster.TaskRecyclerActivity;
-import com.CFTodo.Taskmaster.models.Task;
+
+import com.amplifyframework.datastore.generated.model.*;
 
 import java.util.List;
 
@@ -63,15 +63,15 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 
             callingActivity.startActivity(goToTaskDetails);
         });
+
+
     }
 
     @Override
     public int getItemCount() {
-//        return 100;// 9 Hardcode a large number of items for testing
         return tasks.size();
-        // 12 make the size of list dynamic
     }
-    // 7 create a class to hold the fragment in a viewholder
+
 
     public static class TaskListViewHolder extends RecyclerView.ViewHolder{
 
