@@ -43,3 +43,14 @@ Features Added
  - Description and status are now displaying along with the task title on the task detail page.
 ![Thursday  Screenshot](https://user-images.githubusercontent.com/106052558/191899324-a76666fb-9b6b-46f1-8745-1772d7634788.png)
 
+
+### Tuesday
+
+Features Added
+ - Cloud support added! NO longer restricted to the confides of your local storage. We're online now!
+ - Made it a little bit easier to add a task by creating placeholder test you don't have to delete.  
+ <img width="221" alt="TuesdaySS" src="https://user-images.githubusercontent.com/106052558/193424002-64c73168-070d-4edf-a73f-c1b2a48a5525.png">
+
+
+
+
