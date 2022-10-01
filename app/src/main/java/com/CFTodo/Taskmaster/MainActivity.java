@@ -3,19 +3,20 @@ package com.CFTodo.Taskmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
+
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.CFTodo.Taskmaster.adapter.TaskRecyclerViewAdapter;
-import com.CFTodo.Taskmaster.database.TaskMasterDatabase;
-import com.CFTodo.Taskmaster.models.Task;
+import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,30 +27,21 @@ public class MainActivity extends AppCompatActivity {
     public static final String TASK_TITLE_TAG = "taskTitle";
     public static final String TASK_DESCRIPTION_TAG = "taskDescription";
     public static final String TASK_STATUS_TAG = "taskStatus";
-    public static final String DATABASE_NAME = "TaskMaster_db";
-    TaskMasterDatabase taskMasterDatabase;
+    public static final String Tag = "AddTaskActivity";
+
     //Instantiating list
     List<Task> Tasks = null;
+    TaskRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
+        Tasks = new ArrayList<>();
         setUpButtons();
-
-        //TODO-7 Initialize DB
-        taskMasterDatabase = Room.databaseBuilder(
-                        getApplicationContext(),
-                        TaskMasterDatabase.class,
-                        DATABASE_NAME)
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
-
-        Tasks = taskMasterDatabase.taskDao().findAll();
         setUpTaskRecyclerView();
+        QueryDB();
     }
 
 
@@ -61,11 +53,7 @@ public class MainActivity extends AppCompatActivity {
         //display name to page
         TextView userNameEdited = findViewById(R.id.mainActivityTextView);
         userNameEdited.setText(userName + "'s Tasks");
-
-        //TODO updating task list everytime
-        Tasks.clear();
-        Tasks.addAll(taskMasterDatabase.taskDao().findAll());
-        //TODO left off here add recycler to be viewed wait for alex to post
+        QueryDB();
     }
 
     private void setUpTaskRecyclerView() {
@@ -76,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         TaskRecyclerView.setLayoutManager(layoutManager);
 
-        TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter(Tasks, this);
+        adapter = new TaskRecyclerViewAdapter(Tasks, this);
         TaskRecyclerView.setAdapter(adapter);
 
     }
@@ -101,6 +89,25 @@ public class MainActivity extends AppCompatActivity {
             Intent goToSettings = new Intent(MainActivity.this, UserSettingsActivity.class);
             startActivity(goToSettings);
         });
+    }
+
+    private void QueryDB(){
+        Amplify.API.query(
+                ModelQuery.list(Task.class),
+                successResponse -> {
+                    Log.i(Tag,"Read Task successfully");
+                    Tasks.clear();
+                    for (Task dataBaseTasks : successResponse.getData()){
+                        Tasks.add(dataBaseTasks);
+                    }
+                    runOnUiThread(() ->{
+                        adapter.notifyDataSetChanged();
+                    });
+                },
+                failureResponse -> {
+                    Log.i(Tag,"Did not read Tasks successfully.");
+                }
+        );
     }
 
 
