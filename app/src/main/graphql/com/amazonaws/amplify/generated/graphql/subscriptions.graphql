@@ -1,31 +1,4 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTodo {
-  onCreateTodo {
-    id
-    name
-    description
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateTodo {
-  onUpdateTodo {
-    id
-    name
-    description
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteTodo {
-  onDeleteTodo {
-    id
-    name
-    description
-    createdAt
-    updatedAt
-  }
-}
 subscription OnCreateTask {
   onCreateTask {
     id
@@ -33,6 +6,16 @@ subscription OnCreateTask {
     description
     state
     dateCreated
+    teamID
+    team {
+      id
+      name
+      tasks {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
@@ -44,6 +27,16 @@ subscription OnUpdateTask {
     description
     state
     dateCreated
+    teamID
+    team {
+      id
+      name
+      tasks {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
@@ -55,6 +48,79 @@ subscription OnDeleteTask {
     description
     state
     dateCreated
+    teamID
+    team {
+      id
+      name
+      tasks {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateTeam {
+  onCreateTeam {
+    id
+    name
+    tasks {
+      items {
+        id
+        title
+        description
+        state
+        dateCreated
+        teamID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateTeam {
+  onUpdateTeam {
+    id
+    name
+    tasks {
+      items {
+        id
+        title
+        description
+        state
+        dateCreated
+        teamID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteTeam {
+  onDeleteTeam {
+    id
+    name
+    tasks {
+      items {
+        id
+        title
+        description
+        state
+        dateCreated
+        teamID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }

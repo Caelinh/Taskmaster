@@ -22,6 +22,8 @@ import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.generated.model.*;
 
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class AddTaskActivity extends AppCompatActivity {
     // Setup shared pref
@@ -30,6 +32,8 @@ public class AddTaskActivity extends AppCompatActivity {
     public static final String Tasks = "Task";
     public static final String TaskDescription = "TaskDescription";
     public static final String Tag = "AddTaskActivity";
+    Spinner teamSelectionSpinner = null;
+    CompletableFuture<List<Task>> teamFuture = null;
 
 
 
