@@ -17,13 +17,16 @@ import android.widget.Toast;
 
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.generated.model.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class AddTaskActivity extends AppCompatActivity {
     // Setup shared pref
@@ -33,7 +36,7 @@ public class AddTaskActivity extends AppCompatActivity {
     public static final String TaskDescription = "TaskDescription";
     public static final String Tag = "AddTaskActivity";
     Spinner teamSelectionSpinner = null;
-    CompletableFuture<List<Task>> teamFuture = null;
+    CompletableFuture<List<Team>> teamFuture = null;
 
 
 
@@ -55,6 +58,33 @@ public class AddTaskActivity extends AppCompatActivity {
         setUpStateSpinner();
 
     }
+    private void setUpTeamSpinner(){
+        // query our trainers
+        Amplify.API.query(
+                ModelQuery.list(Team.class),
+                success -> {
+                    Log.i(Tag, "Read trainers succcessfully");
+                    ArrayList<String> teamNames = new ArrayList<>();
+                    ArrayList<Team> teams = new ArrayList<>();
+                    for (Team team : success.getData()){
+                        teams.add(team);
+                        teamNames.add(team.getName());
+                    }
+                    teamFuture.complete(teams);
+                    runOnUiThread(() -> {
+                        teamSelectionSpinner.setAdapter(new ArrayAdapter<>(
+                                this,
+                                android.R.layout.simple_spinner_item,
+                                teamNames));
+                    });
+                },
+                failure -> {
+                    teamFuture.complete(null); // Don't forget to complete a CompletableFuture on every code path!
+                    Log.i(Tag, "Did not read trainers successfully");
+                }
+        );
+    }
+
 
     private void setUpStateSpinner(){
         //TODO Wire up spinner from design
@@ -69,6 +99,19 @@ public class AddTaskActivity extends AppCompatActivity {
         Button submitTaskButton = AddTaskActivity.this.findViewById(R.id.AddTextActivityTextViewAddTaskBTN);
         TextView submitted = AddTaskActivity.this.findViewById(R.id.AddTextActivityTextViewHiddenTxt);
         Spinner taskStateSpinner = findViewById(R.id.AddTaskViewSpinner);
+        String selectedTeamString = teamSelectionSpinner.getSelectedItem().toString();
+        List<Team> teams = null;
+
+        try {
+            teams = teamFuture.get();
+        } catch (InterruptedException ie) {
+            Log.e(Tag, "Interupted Exception while getting teams");
+            Thread.currentThread().interrupt();
+        } catch (ExecutionException ee) {
+            Log.e(Tag, "ExecutionException while getting teams" + ee.getMessage());
+        }
+
+        Team selectedTeam = teams.stream().filter(t -> t.getName().equals(selectedTeamString)).findAny().orElseThrow(RuntimeException::new);
 
         submitTaskButton.setOnClickListener(view -> {
             submitted.setText("Task Submitted");
@@ -88,14 +131,13 @@ public class AddTaskActivity extends AppCompatActivity {
 
             //TODO Create a new date object
             String currentDateString = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
-            //TODO from string to enumStart here!!!! gotta get this fixed
-//            Task.TaskStateEnum TaskStateEnum = Task.TaskStateEnum.fromString(taskStateSpinner.getSelectedItem().toString());
             //TODO create a new task obj.
             Task newTask = Task.builder()
                     .title(taskInput)
                     .description(taskDescription)
                     .state((TaskStateEnum) taskStateSpinner.getSelectedItem())
                     .dateCreated(new Temporal.DateTime(currentDateString))
+                    .team(selectedTeam)
                     .build();
             //TODO insert into DB
             Amplify.API.mutate(
