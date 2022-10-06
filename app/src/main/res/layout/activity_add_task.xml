@@ -93,7 +93,6 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="34dp"
-        android:hint = "Select Team"
         android:layout_marginBottom="27dp"
         app:layout_constraintBottom_toTopOf="@+id/AddTextActivityTextViewInputTask"
         app:layout_constraintEnd_toEndOf="parent"

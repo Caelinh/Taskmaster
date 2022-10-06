@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.CFTodo.Taskmaster.adapter.TaskRecyclerViewAdapter;
+import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.*;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TASK_TITLE_TAG = "taskTitle";
     public static final String TASK_DESCRIPTION_TAG = "taskDescription";
     public static final String TASK_STATUS_TAG = "taskStatus";
-    public static final String Tag = "AddTaskActivity";
+    public static final String Tag = "MainActivity";
 
     //Instantiating list
     List<Task> Tasks = null;
@@ -42,6 +43,31 @@ public class MainActivity extends AppCompatActivity {
         setUpButtons();
         setUpTaskRecyclerView();
         QueryDB();
+
+//        Team newTeam = Team.builder()
+//                .name("Red")
+//                .build();
+//        Amplify.API.mutate(
+//                ModelMutation.create(newTeam),
+//                success -> Log.i(Tag, "Worked"),
+//                failure -> Log.i(Tag, "Didn't work")
+//        );
+//        Team newTeam2 = Team.builder()
+//                .name("Blue")
+//                .build();
+//        Amplify.API.mutate(
+//                ModelMutation.create(newTeam2),
+//                success -> Log.i(Tag, "Worked"),
+//                failure -> Log.i(Tag, "Didn't work")
+//        );
+//        Team newTeam3 = Team.builder()
+//                .name("Yellow")
+//                .build();
+//        Amplify.API.mutate(
+//                ModelMutation.create(newTeam3),
+//                success -> Log.i(Tag, "Worked"),
+//                failure -> Log.i(Tag, "Didn't work")
+//        );
     }
 
 
