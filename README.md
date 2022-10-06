@@ -56,7 +56,7 @@ Features Added
  - Database relationship added to allow tasks to be created and be associated with a team.
  - Data is currently added on DB side and able to be selected when creating a new task. 
  - Next step is displaying the asociated team when viewing task.
- - Shout out to Josh Frazer on some help with a blocker.
+ - Shout out to Josh Frazer on some help with a blocker.  
  ![Teams SS](https://user-images.githubusercontent.com/106052558/194232034-af3475ec-7d93-404b-81d3-4b448e5a82f6.png)
 
 
