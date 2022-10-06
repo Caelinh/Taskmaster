@@ -43,3 +43,10 @@ Features Added
  - Description and status are now displaying along with the task title on the task detail page.
 ![Thursday  Screenshot](https://user-images.githubusercontent.com/106052558/191899324-a76666fb-9b6b-46f1-8745-1772d7634788.png)
 
+### Wednesday
+
+Features Added
+ - Database relationship added to allow tasks to be created and be associated with a team.
+ - Data is currently added on DB side and able to be selected when creating a new task. 
+ - Next step is displaying the asociated team when viewing task.
+ - Shout out to Josh Frazer on some help with a blocker.
