@@ -1,4 +1,4 @@
-package com.CFTodo.Taskmaster;
+package com.CFTodo.Taskmaster.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.CFTodo.Taskmaster.R;
 
 public class UserSettingsActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences;
@@ -22,9 +24,20 @@ public class UserSettingsActivity extends AppCompatActivity {
             sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
             String userName = sharedPreferences.getString(USER_NAME_TAG,"No User found");
             saveUserName();
+            SetUpAcctCreationRedirect();
 
     }
+    private void SetUpAcctCreationRedirect(){
 
+        Button accountPage = findViewById(R.id.VerifyAccountButton);
+        accountPage.setOnClickListener(view -> {
+
+            Intent createAccount = new Intent(UserSettingsActivity.this,UserLoginActivity.class);
+            startActivity(createAccount);
+        });
+
+
+    }
     private void saveUserName() {
         Button saveButton = UserSettingsActivity.this.findViewById(R.id.UserSettingsSaveBtn);
 

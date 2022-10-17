@@ -5,7 +5,7 @@
     android:id="@+id/AddTaskActivityAddTaskBtn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTaskActivity">
+    tools:context=".Activities.AddTaskActivity">
 
     <EditText
         android:id="@+id/AddTextActivityTextViewInputEntry"

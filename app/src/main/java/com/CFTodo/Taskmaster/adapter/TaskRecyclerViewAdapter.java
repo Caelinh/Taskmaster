@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.CFTodo.Taskmaster.MainActivity;
+import com.CFTodo.Taskmaster.Activities.MainActivity;
 import com.CFTodo.Taskmaster.R;
-import com.CFTodo.Taskmaster.TaskDetailActivity;
+import com.CFTodo.Taskmaster.Activities.TaskDetailActivity;
 
 import com.amplifyframework.datastore.generated.model.*;
 

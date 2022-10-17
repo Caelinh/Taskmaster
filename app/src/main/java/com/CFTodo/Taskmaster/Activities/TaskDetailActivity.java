@@ -1,11 +1,12 @@
-package com.CFTodo.Taskmaster;
+package com.CFTodo.Taskmaster.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.CFTodo.Taskmaster.R;
 
 public class TaskDetailActivity extends AppCompatActivity {
 

@@ -1,12 +1,10 @@
-package com.CFTodo.Taskmaster;
+package com.CFTodo.Taskmaster.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.CFTodo.Taskmaster.R;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
@@ -96,6 +95,9 @@ public class AddTaskActivity extends AppCompatActivity {
                 TaskStateEnum.values()
         ));
     }
+
+
+
     private void setUpSubmitButton() {
         Button submitTaskButton = AddTaskActivity.this.findViewById(R.id.AddTextActivityTextViewAddTaskBTN);
         TextView submitted = AddTaskActivity.this.findViewById(R.id.AddTextActivityTextViewHiddenTxt);

@@ -4,38 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.All_Tasks">
+    tools:context=".Activities.AuthenticateUserActivity">
 
-    <TextView
-        android:id="@+id/AlltasksActivityTitleTextView"
+    <EditText
+        android:id="@+id/AuthenticateUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="@string/all_tasks_Title"
-        android:textSize="24sp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="UserName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/AllTasksActivityIMG"
-        android:layout_width="223dp"
-        android:layout_height="233dp"
-        android:layout_marginTop="155dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AlltasksActivityTitleTextView"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/AllTasksActivityBackBTN"
+    <EditText
+        android:id="@+id/AuthenticationCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginBottom="119dp"
-        android:text="@string/back"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Authentication code"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AuthenticateUserName" />
+
+    <Button
+        android:id="@+id/AuthenticateAccountSubmitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:layout_marginBottom="231dp"
+        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AllTasksActivityIMG" />
+        app:layout_constraintTop_toBottomOf="@+id/AuthenticationCode"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

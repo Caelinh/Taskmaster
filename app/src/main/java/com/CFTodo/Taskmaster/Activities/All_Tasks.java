@@ -1,4 +1,4 @@
-package com.CFTodo.Taskmaster;
+package com.CFTodo.Taskmaster.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.Button;
+
+import com.CFTodo.Taskmaster.R;
 
 public class All_Tasks extends AppCompatActivity {
     public static final String PRODUCT_NAME_EXTRA = "productName";
