@@ -5,7 +5,7 @@
     android:id="@+id/AddTaskActivityAddTaskBtn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTaskActivity">
+    tools:context=".Activities.AddTaskActivity">
 
     <EditText
         android:id="@+id/AddTextActivityTextViewInputEntry"
@@ -13,8 +13,10 @@
         android:layout_height="64dp"
         android:layout_marginBottom="332dp"
         android:ems="10"
+        android:hint="@string/task_description"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:hint="Task Description"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
@@ -44,13 +46,15 @@
         android:layout_marginTop="85dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
-        android:hint="Task Name"
+        android:hint="@string/task_name"
         android:inputType="text"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/AddTextActivityTextViewInputEntry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddTextActivityTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/AddTextActivityTextView"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/AddTextActivityTextViewAddTaskBTN"
@@ -69,7 +73,7 @@
         android:layout_marginStart="225dp"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="96dp"
-        android:text="Not Submitted"
+        android:text="@string/not_submitted"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTextActivityTextViewInputEntry" />
@@ -77,14 +81,15 @@
     <Spinner
         android:id="@+id/AddTaskViewSpinner"
         android:layout_width="293dp"
-        android:layout_height="21dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="42dp"
         app:layout_constraintBottom_toTopOf="@+id/AddTextActivityTextViewAddTaskBTN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddTextActivityTextViewHiddenTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/AddTextActivityTextViewHiddenTxt"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Spinner
         android:id="@+id/TeamSelectionSpinner"
@@ -97,6 +102,7 @@
         app:layout_constraintBottom_toTopOf="@+id/AddTextActivityTextViewInputTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddTextActivityTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/AddTextActivityTextView"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

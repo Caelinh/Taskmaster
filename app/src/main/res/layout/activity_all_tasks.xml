@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".All_Tasks">
+    tools:context=".Activities.All_Tasks">
 
     <TextView
         android:id="@+id/AlltasksActivityTitleTextView"
