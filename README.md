@@ -59,6 +59,17 @@ Features Added
  - Shout out to Josh Frazer on some help with a blocker.  
  ![Teams SS](https://user-images.githubusercontent.com/106052558/194232034-af3475ec-7d93-404b-81d3-4b448e5a82f6.png)
 
+### New features
+
+- Cognito implemented!
+- can now create an account and sign in from THe account settings page
+- App soon available on the APP store. Internal testing in progress.
+
+![Sign in page](https://user-images.githubusercontent.com/106052558/196094697-a22c5372-cda0-46c5-ab3f-dbf4a075f8bb.png)  
+
+
+![Taskmaster](https://user-images.githubusercontent.com/106052558/196094767-2b53a625-ca90-4d38-a0fa-f64008daccc0.png)
+
 
 
 
